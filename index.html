@@ -10,19 +10,24 @@
       background: #f2f2f2;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
     .container {
+      width: 95%;
       max-width: 500px;
-      margin: 20px auto;
       background: #fff;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     h1 {
       text-align: center;
       color: green;
       font-weight: bold;
+      margin-bottom: 20px;
     }
     .title {
       text-align: center;
@@ -31,7 +36,7 @@
       margin: 15px 0;
     }
     .form-group {
-      margin: 10px 0;
+      margin: 12px 0;
     }
     label {
       display: block;
@@ -43,12 +48,13 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
+      font-size: 15px;
     }
     button {
       display: block;
       width: 100%;
       padding: 12px;
-      margin-top: 10px;
+      margin-top: 12px;
       background: green;
       color: #fff;
       border: none;
@@ -63,17 +69,19 @@
     }
     .stats {
       margin: 15px 0;
-      padding: 10px;
+      padding: 12px;
       background: #f9f9f9;
       border-radius: 8px;
       text-align: center;
     }
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
     table {
       width: 100%;
+      min-width: 600px; /* ensures horizontal scroll on small screens */
       border-collapse: collapse;
-      margin-top: 15px;
-      overflow-x: auto;
-      display: block;
     }
     th, td {
       padding: 8px;
@@ -92,6 +100,7 @@
       padding: 10px;
       border-radius: 8px;
       text-align: center;
+      font-size: 14px;
     }
     .success {
       background: #d4edda;
@@ -100,6 +109,11 @@
     .error {
       background: #f8d7da;
       color: #721c24;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 22px; }
+      .title { font-size: 16px; }
+      button { font-size: 15px; }
     }
   </style>
 </head>
@@ -139,19 +153,21 @@
 
       <div id="message" class="message hidden"></div>
 
-      <h3>Recent Transactions</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Ref</th>
-            <th>Amount Paid</th>
-            <th>Seller Share</th>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="transactions"></tbody>
-      </table>
+      <h3 style="text-align:center; margin-top:20px;">Recent Transactions</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Ref</th>
+              <th>Amount Paid</th>
+              <th>Seller Share</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="transactions"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
